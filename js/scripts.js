@@ -1,3 +1,8 @@
+function Order() {
+  this.pizza = {};
+  this.currentId = 0;
+}
+
 function Pizza(size, cheese, topping1, topping2, topping3 ) {
   this.size = size;
   this.cheese = cheese
@@ -6,6 +11,17 @@ function Pizza(size, cheese, topping1, topping2, topping3 ) {
   this.topping3 = topping3
 }
 
+let addressBook = new AddressBook();
+
+function displayPizzaDetails(pizzaToDisplay) {
+  let toppingList = $("#your-pizza");
+  let htmlForPizzaInfo = "";
+  Object.keys(pizzaToDisplay.pizza).forEach(function(key) {
+    const contact = addressBookToDisplay.findContact(key);
+    htmlForContactInfo += "<li id=" + contact.id + ">" + contact.firstName + " " + contact.lastName + "</li>";
+  });
+  contactsList.html(htmlForContactInfo);
+}
 
 $(document).ready(function() {
   $("form#build-pizza").submit(function(event) {
