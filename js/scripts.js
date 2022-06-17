@@ -23,6 +23,14 @@ function Pizza(size, cheese, topping1, topping2, topping3 ) {
   this.topping1 = topping1
   this.topping2 = topping2
   this.topping3 = topping3
+  this.value = 0;
+}
+
+Pizza.prototype.topPricing = function() {
+  if(this.size = "kiddo" ) {
+    this.value + 5;
+  }
+
 }
 
 //user
@@ -48,6 +56,8 @@ $(document).ready(function() {
     const selectedTop3 = $("select#topping3-select").val();
     let newPizza = new Pizza(selectedSize, selectedCheese, selectedTop1, selectedTop2, selectedTop3);
     order.addPizza(newPizza);
+    newPizza.topPricing();
     displayPizzaDetails(order);
+    $("#ordertotal").html(newPizza.value);
   });
 });
