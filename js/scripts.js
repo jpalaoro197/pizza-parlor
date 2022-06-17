@@ -10,6 +10,13 @@ Order.prototype.assignId = function() {
   this.currentId += 1;
   return this.currentId;
 };
+
+Order.prototype.findPizza = function(id) {
+  if(this.pizzas[id] !== undefined) {
+    return this.pizzas[id];
+  }
+  return false
+};
 function Pizza(size, cheese, topping1, topping2, topping3 ) {
   this.size = size;
   this.cheese = cheese
@@ -19,16 +26,16 @@ function Pizza(size, cheese, topping1, topping2, topping3 ) {
 }
 
 //user
-let addressBook = new AddressBook();
+let order = new Order();
 
 function displayPizzaDetails(pizzaToDisplay) {
-  let toppingList = $("#your-pizza");
+  let toppingList = $("ul#your-order");
   let htmlForPizzaInfo = "";
-  Object.keys(pizzaToDisplay.pizza).forEach(function(key) {
-    const contact = addressBookToDisplay.findContact(key);
-    htmlForContactInfo += "<li id=" + contact.id + ">" + contact.firstName + " " + contact.lastName + "</li>";
+  Object.keys(pizzaToDisplay.pizzas).forEach(function(key) {
+    const pizza = pizzaToDisplay.findPizza(key);
+    htmlForPizzaInfo += "<li id=" + pizza.id + ">" + pizza.size + " " + pizza.cheese + " " + pizza.topping1 + " " + pizza.topping2 + " " + pizza.topping2 + " " + pizza.topping3 + "</li>";
   });
-  contactsList.html(htmlForContactInfo);
+  toppingList.html(htmlForPizzaInfo);
 }
 
 $(document).ready(function() {
@@ -40,7 +47,7 @@ $(document).ready(function() {
     const selectedTop2 = $("select#topping2-select").val();
     const selectedTop3 = $("select#topping3-select").val();
     let newPizza = new Pizza(selectedSize, selectedCheese, selectedTop1, selectedTop2, selectedTop3);
-    $("#your-pizza").html(newPizza);
-    console.log(newPizza);
-  })
-})
+    order.addPizza(newPizza);
+    displayPizzaDetails(order);
+  });
+});
