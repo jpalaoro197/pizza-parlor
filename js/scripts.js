@@ -1,8 +1,15 @@
 function Order() {
-  this.pizza = {};
+  this.pizzas = {};
   this.currentId = 0;
 }
-
+Order.prototype.addPizza = function(Pizza) {
+  Pizza.id = this.assignId();
+  this.pizzas[Pizza.id] = Pizza;
+};
+Order.prototype.assignId = function() {
+  this.currentId += 1;
+  return this.currentId;
+};
 function Pizza(size, cheese, topping1, topping2, topping3 ) {
   this.size = size;
   this.cheese = cheese
@@ -11,6 +18,7 @@ function Pizza(size, cheese, topping1, topping2, topping3 ) {
   this.topping3 = topping3
 }
 
+//user
 let addressBook = new AddressBook();
 
 function displayPizzaDetails(pizzaToDisplay) {
