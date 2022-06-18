@@ -1,6 +1,7 @@
 function Order() {
   this.pizzas = {};
   this.currentId = 0;
+  this.total = 0;
 }
 Order.prototype.addPizza = function(Pizza) {
   Pizza.id = this.assignId();
@@ -17,6 +18,8 @@ Order.prototype.findPizza = function(id) {
   }
   return false
 };
+
+
 function Pizza(size, cheese, topping1, topping2, topping3 ) {
   this.size = size;
   this.cheese = cheese
@@ -27,11 +30,19 @@ function Pizza(size, cheese, topping1, topping2, topping3 ) {
 }
 
 Pizza.prototype.topPricing = function() {
-  if(this.size = "kiddo" ) {
-    this.value + 5;
+  if(this.size === "kiddo" ) {
+    this.value += 5;
+  } else if(this.size === "small" ) {
+    this.value += 7;
+  } else if(this.size === "medium" ) {
+    this.value += 9;
+  } else if(this.size === "large" ) {
+    this.value += 11;
+  } else if(this.size === "family") {
+    this.value += 13;
   }
-
 }
+
 
 //user
 let order = new Order();
