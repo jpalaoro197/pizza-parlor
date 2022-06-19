@@ -1,3 +1,7 @@
 #submit-order{
   display: none;
 }
+
+#complete-order{
+  display: none;
+}
