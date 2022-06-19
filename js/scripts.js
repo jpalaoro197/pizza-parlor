@@ -75,3 +75,11 @@ $(document).ready(function() {
     $("#submit-order").show();
   });
 });
+
+$(document).ready(function() {
+  $("#order").click(function(event) {
+    event.preventDefault();
+    $("#final-hide").hide();
+    $("#complete-order").show();
+  });
+});  
