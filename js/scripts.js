@@ -48,11 +48,11 @@ Pizza.prototype.topPricing = function() {
 let order = new Order();
 
 function displayPizzaDetails(pizzaToDisplay) {
-  let toppingList = $("ul#your-order");
+  let toppingList = $("div#your-order");
   let htmlForPizzaInfo = "";
   Object.keys(pizzaToDisplay.pizzas).forEach(function(key) {
     const pizza = pizzaToDisplay.findPizza(key);
-    htmlForPizzaInfo += "<li id=" + pizza.id + ">" + pizza.size + " " + pizza.cheese + " " + pizza.topping1 + " " + pizza.topping2 + " " + pizza.topping2 + " " + pizza.topping3 + "</li>";
+    htmlForPizzaInfo += "<h3 id=" + pizza.id + ">" + pizza.size + " " + pizza.cheese + " " + pizza.topping1 + " " + pizza.topping2 + " " + pizza.topping2 + " " + pizza.topping3 + "</h3>";
   });
   toppingList.html(htmlForPizzaInfo);
 }
@@ -71,5 +71,6 @@ $(document).ready(function() {
     displayPizzaDetails(order);
 
     $("#ordertotal").html(" $" + newPizza.value + ".99 ");
+    $("#form").hide();
   });
 });
