@@ -72,5 +72,6 @@ $(document).ready(function() {
 
     $("#ordertotal").html(" $" + newPizza.value + ".99 ");
     $("#form").hide();
+    $("#submit-order").show();
   });
 });
