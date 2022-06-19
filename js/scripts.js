@@ -28,7 +28,7 @@ function Pizza(size, cheese, topping1, topping2, topping3 ) {
   this.value = 0;
 }
 
-Pizza.prototype.topPricing = function() {
+Pizza.prototype.sizePricing = function() {
   if(this.size === "kiddo" ) {
     this.value += 5;
   } else if(this.size === "small" ) {
@@ -67,7 +67,7 @@ $(document).ready(function() {
     const selectedTop3 = $("select#topping3-select").val();
     let newPizza = new Pizza(selectedSize, selectedCheese, selectedTop1, selectedTop2, selectedTop3);
     order.addPizza(newPizza);
-    newPizza.topPricing();
+    newPizza.sizePricing();
     displayPizzaDetails(order);
 
     $("#ordertotal").html(" $" + newPizza.value + ".99 ");
