@@ -19,7 +19,6 @@ Order.prototype.findPizza = function(id) {
   return false
 };
 
-
 function Pizza(size, cheese, topping1, topping2, topping3 ) {
   this.size = size;
   this.cheese = cheese
@@ -42,6 +41,7 @@ Pizza.prototype.topPricing = function() {
     this.value += 13;
   }
 }
+
 
 
 //user
@@ -69,6 +69,7 @@ $(document).ready(function() {
     order.addPizza(newPizza);
     newPizza.topPricing();
     displayPizzaDetails(order);
-    $("#ordertotal").html(newPizza.value);
+
+    $("#ordertotal").html(" $" + newPizza.value + ".99 ");
   });
 });
